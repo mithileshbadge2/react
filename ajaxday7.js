@@ -18,7 +18,7 @@ const createUser = fetch(`https://reqres.in/api/users`, {
 function quickResponse(){
     return new Promise(function (resolve,reject){
         setTimeout(function(){
-            reject('I executed first')
+            resolve('I executed first')
         },1)
     })
 }
@@ -35,6 +35,8 @@ async function anyPromise(){
         console.log("All failed:",error)
     }
 }
+
+anyPromise()
 
 // Promise.allSettled([getUsers,
 //     createUser,
@@ -58,14 +60,14 @@ async function anyPromise(){
 // })
 // .catch((error) => console.error("All failed:",error))
 
-Promise.all([
-    getUsers,
-    createUser
-])
-.then(function(arr){
-    console.log(arr[0])
-    console.log(arr[1])
-})
-.catch((error) => console.error("All failed:",error))
+// Promise.all([
+//     getUsers,
+//     createUser
+// ])
+// .then(function(arr){
+//     console.log(arr[0])
+//     console.log(arr[1])
+// })
+// .catch((error) => console.error("All failed:",error))
 
 
